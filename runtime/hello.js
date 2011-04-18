@@ -37,4 +37,6 @@ x.data.posy = x.pos.y
 JSON.stringify(graph.toJSON("graph"))
 
 map.png center: 1086, 571
+
+function addposdata(n) { n.data.posx = n.pos.x; n.data.posy = n.pos.y; }
 */
