@@ -123,6 +123,11 @@ function init(){
   var fd = new $jit.ForceDirected({
     //id of the visualization container
     injectInto: 'infovis',
+    background: 'Image',
+    //use map image as bg, hopefully later
+    Canvas: {
+        background: 'Image'
+    },
     //Enable zooming and panning
     //with scrolling and DnD
     Navigation: {
@@ -279,12 +284,14 @@ function init(){
   });
 
   graph = fd; //publishes to outside for console testing
-  var ctx = graph.canvas.element.firstChild.getContext('2d');
+  
+  /*var ctx = graph.canvas.element.firstChild.getContext('2d');
   var img = new Image();
   img.src = 'map.png';
   img.onload = function() {
     ctx.drawImage(img,0,0);
-  }
+  }*/
+  
   //graph.canvas.element.firstChild.style.backgroundImage = 'url(map.png)';
   //graph.canvas.element.firstChild.style.backgroundPosition = "center center"
   //graph.canvas.element.firstChild.style.backgroundRepeat = "no-repeat"

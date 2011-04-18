@@ -2959,6 +2959,29 @@ var Canvas;
       //TODO(nico): print labels too!
     }
   });
+  Canvas.Background.Image = new Class({
+      initialize: function(viz, options) {
+          this.viz = viz;
+          this.config = $.merge({
+            idSuffix: '-bkcanvas',
+            levelDistance: 100,
+            CanvasStyles: {},
+            offset: [-1086, -571]
+      }, options);
+
+          this.img = new Image();
+          this.img.src = 'map.png';
+      },
+      resize: function(widht, height, base) {
+          this.plot(base);
+      },
+      plot: function(base) {
+        var canvas = base.canvas,
+          ctx = base.getCtx();
+        var offset = this.config.offset;
+        ctx.drawImage(this.img, offset[0],offset[1]);
+      }
+  });
 })();
 
 
@@ -7857,7 +7880,7 @@ $jit.ForceDirected = new Class( {
     } else {
       if(canvasConfig.background) {
         canvasConfig.background = $.merge({
-          type: 'Circles'
+          type: 'Image'
         }, canvasConfig.background);
       }
       this.canvas = new Canvas(this, canvasConfig);

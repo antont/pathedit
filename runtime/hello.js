@@ -35,4 +35,6 @@ g.addAdjacence(x, n1)
 x.data.posx = x.pos.x
 x.data.posy = x.pos.y
 JSON.stringify(graph.toJSON("graph"))
+
+map.png center: 1086, 571
 */
